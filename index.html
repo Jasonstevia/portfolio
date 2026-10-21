@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Jason Slim — AI engineer &amp; systems builder</title>
+    <meta name="description" content="Portfolio of Jason Kozhaya Slim: AI agents, LLM pipelines, low-level C systems and security projects, each shown as a live, interactive demo." />
+    <meta name="author" content="Jason Kozhaya Slim" />
+    <meta name="theme-color" content="#f6eddd" />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jason Slim — AI engineer &amp; systems builder" />
+    <meta property="og:description" content="AI agents, LLM pipelines, C systems and security projects, each shown as a live demo." />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <!-- Covers the page until fonts and the first demo are ready -->
+    <div class="loader" id="loader" role="status" aria-live="polite">
+      <div class="loader-inner">
+        <svg class="loader-logo" viewBox="0 0 50 50" aria-hidden="true">
+          <use href="#logo" />
+        </svg>
+        <p class="loader-title">Jason Slim</p>
+        <div class="loader-track" aria-hidden="true"><span class="loader-fill"></span></div>
+        <p class="loader-step">Booting projects</p>
+        <noscript><p class="noscript">This portfolio runs live demos in your browser. Turn on JavaScript to explore it.</p></noscript>
+      </div>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <g id="logo">
+          <path class="logo-pins" d="M18 4v7M25 4v7M32 4v7M18 39v7M25 39v7M32 39v7M4 18h7M4 25h7M4 32h7M39 18h7M39 25h7M39 32h7" />
+          <rect class="logo-body" x="11" y="11" width="28" height="28" rx="4" />
+          <path class="logo-mark" d="M24 18v10.5c0 2.6-1.6 4-4 4M34 19.5c-.9-1-2.3-1.6-3.8-1.6-2.2 0-3.7 1.2-3.7 3s1.4 2.4 3.6 3c2.4.6 4 1.5 4 3.6 0 2-1.7 3.4-4.1 3.4-1.7 0-3.2-.7-4.2-1.8" />
+        </g>
+      </defs>
+    </svg>
+
+    <div id="app" class="artboard" inert>
+      <svg class="traces" id="traces" aria-hidden="true"></svg>
+
+      <!-- Sidebar -->
+      <nav class="sidebar" aria-label="Main">
+        <ul class="side-nav">
+          <li class="is-active">
+            <a href="#" data-nav="home" aria-label="Home" title="Home">
+              <svg viewBox="0 0 32 32" class="fill"><path d="M16 4.2 3.6 15.1c-.7.6-.3 1.7.6 1.7H6v9.4c0 1 .8 1.8 1.8 1.8h5.4v-7.3h5.6V28h5.4c1 0 1.8-.8 1.8-1.8v-9.4h1.8c.9 0 1.3-1.1.6-1.7z" /></svg>
+              <span class="side-label">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-nav="projects" aria-label="Projects" title="Projects">
+              <svg viewBox="0 0 32 32"><rect x="8.5" y="8.5" width="15" height="15" rx="1.6" /><rect x="12" y="12" width="8" height="8" rx=".6" class="fill" /><path d="M12.5 4v4.5M16 4v4.5M19.5 4v4.5M12.5 23.5V28M16 23.5V28M19.5 23.5V28M4 12.5h4.5M4 16h4.5M4 19.5h4.5M23.5 12.5H28M23.5 16H28M23.5 19.5H28" /></svg>
+              <span class="side-label">Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-nav="experience" aria-label="Experience" title="Experience">
+              <svg viewBox="0 0 32 32"><rect x="4.5" y="9.5" width="23" height="16" rx="2" /><path d="M11.5 9.5V7.3c0-1 .8-1.8 1.8-1.8h5.4c1 0 1.8.8 1.8 1.8v2.2M4.5 16.5h23" /><rect x="14" y="14.5" width="4" height="4" rx=".6" class="fill" /></svg>
+              <span class="side-label">Experience</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-nav="skills" aria-label="Skills" title="Skills">
+              <svg viewBox="0 0 32 32"><path d="m11 10-6.5 6 6.5 6M21 10l6.5 6-6.5 6M18.2 7.5l-4.4 17" /></svg>
+              <span class="side-label">Skills</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-nav="contact" aria-label="Contact" title="Contact">
+              <svg viewBox="0 0 32 32"><rect x="4.5" y="7.5" width="23" height="17" rx="2" /><path d="m5.5 9 10.5 8.3L26.5 9" /></svg>
+              <span class="side-label">Contact</span>
+            </a>
+          </li>
+          <li class="is-muted">
+            <a href="assets/Jason_Slim_CV.pdf" target="_blank" rel="noopener" data-nav="cv" aria-label="Download CV" title="Download CV">
+              <svg viewBox="0 0 32 32"><path d="M8.5 4.5h10l5 5v18h-15z" /><path d="M18.5 4.5v5h5M16 13v9M12.4 18.6 16 22.2l3.6-3.6" /></svg>
+              <span class="side-label">CV</span>
+            </a>
+          </li>
+        </ul>
+        <a class="side-gh" href="https://github.com/Jasonstevia" target="_blank" rel="noopener noreferrer" title="github.com/Jasonstevia" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z" /></svg>
+        </a>
+      </nav>
+      <aside class="flyout" id="flyout" aria-live="polite"></aside>
+
+      <!-- Brand -->
+      <header class="brand">
+        <svg class="brand-logo" viewBox="0 0 50 50" aria-hidden="true"><use href="#logo" /></svg>
+        <span class="brand-rule" aria-hidden="true"></span>
+        <div class="brand-text">
+          <h1>Jason Slim</h1>
+          <p>Engineer <i>·</i> Build <i>·</i> Automate</p>
+        </div>
+      </header>
+
+      <!-- Stage: live mockup of the selected project + callout tags -->
+      <main class="stage" id="stage">
+        <svg class="leaders" id="leaders" aria-hidden="true"></svg>
+        <div class="tags" id="tags"></div>
+        <div class="device-holder" id="device-holder">
+          <div class="device" id="device"></div>
+        </div>
+        <div class="demobar" id="demobar">
+          <p class="demo-hint" id="demo-hint"></p>
+          <button class="demo-btn" data-act="replay" title="Replay demo (R)">
+            <svg viewBox="0 0 24 24"><path d="M4.5 10.5A8 8 0 1 1 6 17" /><path d="M4 5v5.8h5.8" /></svg>
+            <span>Replay</span>
+          </button>
+          <a class="demo-btn" id="demo-repo" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z" /></svg>
+            <span>View code</span>
+          </a>
+        </div>
+      </main>
+
+      <!-- Top-right status -->
+      <section class="status" aria-label="Progress">
+        <div class="progress-card">
+          <svg viewBox="0 0 40 40" class="progress-icon" aria-hidden="true"><rect x="9" y="9" width="22" height="22" rx="2.5" /><rect x="14.5" y="14.5" width="11" height="11" rx="1" class="fill" /><path d="M15 3v6M20 3v6M25 3v6M15 31v6M20 31v6M25 31v6M3 15h6M3 20h6M3 25h6M31 15h6M31 20h6M31 25h6" /></svg>
+          <div class="progress-body">
+            <span class="progress-label">Projects explored</span>
+            <div class="progress-row">
+              <span class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0"><span class="progress-fill" id="progress-fill"></span></span>
+              <span class="progress-count" id="progress-count">0/9</span>
+            </div>
+          </div>
+        </div>
+        <time class="clock" id="clock">
+          <span class="clock-zone">Beirut</span>
+          <span id="clock-date">—</span>
+          <span id="clock-time">—</span>
+        </time>
+      </section>
+
+      <!-- Right info panel -->
+      <section class="info-card" aria-label="Project information">
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <div class="info-body" role="tabpanel">
+          <div class="info-content" id="info-content"></div>
+        </div>
+      </section>
+
+      <!-- Code card -->
+      <section class="code-card" aria-label="Under the hood" data-state="idle">
+        <header>
+          <h2>Under the hood</h2>
+          <span class="code-lang" id="code-lang"></span>
+          <div class="code-actions">
+            <button class="btn-ghost btn-copy" aria-label="Copy code" title="Copy code">
+              <svg viewBox="0 0 24 24"><rect x="8" y="8" width="11.5" height="12.5" rx="1.6" /><path d="M15.5 5.2V4.8c0-.9-.7-1.6-1.6-1.6H6.1c-.9 0-1.6.7-1.6 1.6v9.6c0 .9.7 1.6 1.6 1.6h.4" /></svg>
+            </button>
+            <button class="btn-run" aria-label="Run" title="Run (Space)">
+              <svg viewBox="0 0 24 24"><path d="M7.5 4.8v14.4L19 12z" class="fill" /></svg>
+            </button>
+          </div>
+        </header>
+        <div class="code-wrap">
+          <pre class="code"><code id="code"></code></pre>
+          <div class="console">
+            <div class="console-head">
+              <span class="console-dot"></span>
+              <span class="console-title">Output</span>
+              <span class="console-status">Idle</span>
+            </div>
+            <div class="console-lines" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects strip -->
+      <section class="strip" aria-label="Projects">
+        <h2>Projects</h2>
+        <div class="strip-scroll">
+          <ol class="project-list" id="project-list"></ol>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
