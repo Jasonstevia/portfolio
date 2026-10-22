@@ -2,8 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "jason-slim",
   "compatibility_date": "2026-10-19",
+  "workers_dev": true,
   // static site: serve the repo root, minus the files listed in .assetsignore
   "assets": {
     "directory": "."
-  }
+  },
+  "routes": [
+    { "pattern": "jasonslim.me", "custom_domain": true },
+    { "pattern": "www.jasonslim.me", "custom_domain": true }
+  ]
 }
