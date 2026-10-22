@@ -229,7 +229,8 @@ a.link-row:hover { border-color: var(--teal); background: #fbf7ef; }
 .strip-scroll { position: absolute; top: 22px; left: 0; right: 0; bottom: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
 .strip-scroll::-webkit-scrollbar { display: none; }
 .project-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; height: 100%; }
-.project-card { position: relative; flex: 1 0 146px; min-width: 146px; height: 100%; padding: 10px 11px; border: 1.5px solid var(--line); border-radius: 11px; background: var(--card-soft); text-align: left; display: flex; flex-direction: column; transition: border-color .2s, transform .25s var(--ease), box-shadow .25s; }
+.project-list li { flex: 1 0 146px; display: flex; }
+.project-card { position: relative; flex: 1; min-width: 146px; height: 100%; padding: 10px 11px; border: 1.5px solid var(--line); border-radius: 11px; background: var(--card-soft); text-align: left; display: flex; flex-direction: column; transition: border-color .2s, transform .25s var(--ease), box-shadow .25s; }
 .project-card:hover { transform: translateY(-3px); border-color: var(--faint); box-shadow: 0 10px 22px -16px #3c2d148c; }
 .project-card.is-active { border-color: var(--navy); background: #fffaf1; box-shadow: 0 0 0 1.5px var(--navy), 0 12px 24px -16px #18213d; }
 .project-card .pc-top { display: flex; align-items: center; justify-content: space-between; }
@@ -487,6 +488,133 @@ html.compact .strip { order: 2; height: 150px; }
 html.compact .info-card { order: 3; height: auto; max-height: none; }
 html.compact .info-body { overflow: visible; }
 html.compact .code-card { order: 4; height: 320px; }
+
+/* ---------- Phone (< 700px): mockups at native size with their own stacked layouts ---------- */
+html.phone .artboard { padding: 14px 12px 88px; gap: 14px; }
+
+/* header */
+html.phone .brand-logo { width: 38px; height: 38px; }
+html.phone .brand-rule { height: 36px; margin: 0 12px 0 10px; }
+html.phone .brand-text h1 { font-size: 24px; line-height: 26px; letter-spacing: .1em; }
+html.phone .brand-text p { font-size: 11px; letter-spacing: .14em; margin-top: 3px; }
+
+/* stage: real-size window, height per demo */
+html.phone .device-holder { height: auto; overflow: visible; display: block; }
+html.phone .device { position: relative; width: 100%; height: 560px; transform: none; }
+html.phone .device[data-demo="home"] { height: 540px; }
+html.phone .device[data-demo="minishell"], html.phone .device[data-demo="ai-os"] { height: 560px; }
+html.phone .device[data-demo="structurai"] { height: 900px; }
+html.phone .device[data-demo="fieldnote"] { height: 680px; }
+html.phone .device[data-demo="smartprompt"] { height: 640px; }
+html.phone .device[data-demo="fin-extractor"] { height: 860px; }
+html.phone .device[data-demo="tweetcraft"] { height: 640px; }
+html.phone .device[data-demo="minirt"] { height: 580px; }
+html.phone .device[data-demo="security"] { height: 680px; }
+html.phone .win { font-size: 13px; border-radius: 12px; }
+html.phone .win-bar { height: 34px; padding: 0 12px; gap: 10px; }
+html.phone .win-dots i { width: 9px; height: 9px; }
+html.phone .win-title { margin-right: 0; font-size: 11px; }
+html.phone .win-url { margin-right: 0; height: 24px; font-size: 11px; padding: 0 9px; }
+html.phone .term { font-size: 12px; line-height: 1.55; padding: 12px 12px 14px; overflow-wrap: anywhere; }
+html.phone .win-body > *, html.phone .sec-body > * { min-width: 0; }
+html.phone .term .input-line input { font-size: 16px; } /* 16px stops iOS zooming on focus */
+html.phone .demobar { gap: 8px; margin-top: 10px; }
+html.phone .demo-hint { font-size: 12px; line-height: 1.5; }
+html.phone .demo-btn { height: 36px; flex: 1; justify-content: center; }
+html.phone .msg { font-size: 12.5px; padding: 8px 10px; }
+html.phone .btn { height: 30px; padding: 0 11px; font-size: 12px; }
+
+/* StructurAI: brief + model + checks on top, drawing below */
+html.phone [data-demo="structurai"] .win-body { flex-direction: column; }
+html.phone .sa-side { width: auto; flex: none; border-right: 0; border-bottom: 1px solid #e6dccd; }
+html.phone .sa-chat { padding: 10px 12px; gap: 8px; }
+html.phone .sa-json { flex: none; height: 212px; padding: 8px 12px; font-size: 10.5px; line-height: 1.45; }
+html.phone .sa-checks { grid-template-columns: 1fr 1fr; padding: 8px 12px 10px; font-size: 11.5px; }
+html.phone .sa-main { flex: 1; min-height: 0; }
+html.phone .sa-toolbar { flex-wrap: wrap; padding: 8px 12px; gap: 6px; }
+html.phone .sa-toolbar .btn { height: 26px; padding: 0 9px; }
+
+/* FieldNote */
+html.phone .fn-head { padding: 10px 12px; }
+html.phone .fn-agents { padding: 8px 12px; gap: 5px; }
+html.phone .agent { height: 24px; padding: 0 8px; font-size: 11px; }
+html.phone .fn-feed { padding: 12px; gap: 8px; }
+html.phone .fn-grid { grid-template-columns: 1fr; gap: 8px; }
+html.phone .fn-card { font-size: 12.5px; }
+html.phone .fn-input { padding: 10px 12px; }
+html.phone .fn-input input { font-size: 16px; height: 38px; min-width: 0; }
+
+/* SmartPrompt: extension popup sits under the chat box */
+html.phone .sp-page { padding: 20px 14px; justify-content: flex-start; }
+html.phone .sp-page h3 { font-size: 21px; text-align: center; }
+html.phone .sp-page > p { margin-bottom: 14px; text-align: center; font-size: 12.5px; }
+html.phone .sp-box textarea { height: 230px; font-size: 13.5px; }
+html.phone .ext-popup { position: relative; top: auto; right: auto; width: 100%; order: 5; margin-top: 14px; }
+
+/* Financial extractor: document on top, pipeline below */
+html.phone [data-demo="fin-extractor"] .win-body { flex-direction: column; }
+html.phone .fx-doc { width: auto; flex: none; padding: 12px; border-right: 0; border-bottom: 1px solid #ddd0bd; }
+html.phone .paper { flex: none; padding: 14px; font-size: 11px; }
+html.phone .fx-main { padding: 12px; gap: 10px; }
+html.phone .router .node { padding: 8px; font-size: 11.5px; }
+html.phone .json { flex: 1; min-height: 190px; font-size: 11px; padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* tweetcraft: drop the side nav */
+html.phone .tc-nav { display: none; }
+html.phone .tc-main { padding: 12px; gap: 10px; }
+html.phone .tc-form { flex-wrap: wrap; padding: 8px; }
+html.phone .tc-form .field:first-child { flex: 1 1 100%; }
+html.phone .tc-form .field { height: 32px; font-size: 12.5px; }
+html.phone .tweet { font-size: 12.5px; padding: 8px 10px; }
+html.phone .tc-job .row { flex-wrap: wrap; row-gap: 4px; }
+html.phone .tc-job .row > * { white-space: nowrap; }
+
+/* miniRT: scene file on top, render below */
+html.phone [data-demo="minirt"] .win-body { flex-direction: column; }
+html.phone .rt-side { width: auto; height: 250px; flex: none; border-right: 0; border-bottom: 1px solid #263055; }
+html.phone .rt-side textarea { font-size: 11px; line-height: 1.6; padding: 10px 12px; }
+html.phone .rt-side .rt-foot { padding: 8px 12px; }
+html.phone .rt-view { padding: 12px 12px 30px; align-content: start; }
+html.phone .rt-view canvas { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+
+/* Security: scrolling tab bar, OTP panel above the terminal */
+html.phone .sec-tabs { overflow-x: auto; scrollbar-width: none; padding: 6px 8px 0; }
+html.phone .sec-tabs::-webkit-scrollbar { display: none; }
+html.phone .sec-tabs button { flex: none; padding: 8px 11px; font-size: 11.5px; }
+html.phone .sec-body { flex-direction: column-reverse; }
+html.phone .sec-body .term { min-height: 0; }
+html.phone .otp-panel { width: auto; flex: none; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; padding: 14px 12px; border-left: 0; border-bottom: 1px solid #263055; }
+html.phone .otp-ring { width: 70px; height: 70px; }
+html.phone .otp-ring .t { font-size: 16px; }
+html.phone .otp-code { font-size: 32px; }
+html.phone .otp-panel input { flex: 1 1 100%; font-size: 10px; }
+html.phone .otp-panel small { flex: 1 1 100%; }
+
+/* status card: progress + clock side by side, no overlap */
+html.phone .status { height: auto; display: flex; align-items: center; gap: 12px; padding: 8px; }
+html.phone .progress-card, html.phone .clock { position: static; }
+html.phone .progress-card { flex: 1; min-width: 0; width: auto; height: 58px; gap: 12px; padding: 0 12px; }
+html.phone .progress-icon { width: 28px; height: 28px; }
+html.phone .progress-label { font-size: 12.5px; white-space: nowrap; }
+html.phone .clock { flex: none; font-size: 13px; line-height: 17px; padding-right: 6px; }
+
+/* info + code cards */
+html.phone .tabs { gap: 20px; padding-left: 16px; height: 44px; }
+html.phone .tabs button { height: 44px; font-size: 14px; }
+html.phone .info-body { padding: 14px 16px 18px; }
+html.phone .info-content h3 { font-size: 23px; }
+html.phone .info-lede { font-size: 14.5px; }
+html.phone .feature, html.phone .steps li { font-size: 14px; }
+html.phone .code-card { height: 330px; }
+html.phone .code-card header { gap: 8px; }
+html.phone .code-card h2 { font-size: 13.5px; white-space: nowrap; }
+html.phone .code-lang { min-width: 0; max-width: 46%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+html.phone .code { font-size: 11.5px; }
+
+/* projects strip */
+html.phone .strip { height: 140px; }
+html.phone .project-list li { flex: 0 0 132px; }
+html.phone .project-card { min-width: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }

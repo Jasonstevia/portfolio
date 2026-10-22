@@ -9,6 +9,7 @@ const BASE_W = 1672, BASE_H = 941, MIN_W = 1400;
 const app = O('#app');
 let scale = 1;
 let compact = false;
+let phone = false; // compact + narrow: mockups use their own mobile layout instead of being scaled
 let current = null; // project object or HOME
 let runner = null;
 
@@ -19,7 +20,9 @@ function fit() {
   let n = Math.min(vw / BASE_W, vh / BASE_H);
   if (n < vh / BASE_H) n = Math.min(vh / BASE_H, vw / MIN_W); // narrow: let the artboard shrink to MIN_W first
   compact = n < 0.5 || vw / vh < 0.95;
+  phone = compact && vw < 700;
   document.documentElement.classList.toggle('compact', compact);
+  document.documentElement.classList.toggle('phone', phone);
   if (compact) {
     scale = 1;
     app.style.width = app.style.height = app.style.transform = '';
@@ -249,7 +252,11 @@ const holder = O('#device-holder');
 const stage = O('#stage');
 
 function fitDevice() {
-  if (compact) {
+  if (phone) {
+    // native size: the CSS under html.phone lays each mockup out for a narrow screen
+    holder.style.removeProperty('--dev-h');
+    device.style.transform = device.style.position = device.style.left = device.style.top = device.style.transformOrigin = '';
+  } else if (compact) {
     const s = Math.min(1, holder.clientWidth / 880);
     holder.style.setProperty('--dev-h', `${Math.round(600 * s)}px`);
     device.style.transform = `scale(${s})`;
@@ -269,6 +276,7 @@ function mount(p) {
   runner?.stop();
   runner = createRunner();
   device.innerHTML = '';
+  device.dataset.demo = p.id;
   O('#tags').innerHTML = (p.tags || []).map((t, i) => `<div class="tag" data-key="${t.key}"><b><i>${String(i + 1).padStart(2, '0')}</i>${t.label}</b><span>${t.text}</span></div>`).join('');
   O('#leaders').innerHTML = '';
   DEMOS[p.id](device, runner, { open: go, flyout: openFlyoutByName, refreshTags });
